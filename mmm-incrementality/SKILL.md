@@ -63,6 +63,7 @@ Match method to question and data reality:
 | Geo experiment | Does channel X drive incremental sales? | Market-level spend control, 2+ matched markets per arm |
 | Audience holdout | Does channel X convert users who'd convert anyway? | Audience-level targeting control |
 | Conversion lift test | Does this campaign cause conversions? | Platform lift-test support |
+| Ghost ads | Does channel X drive incremental conversions (auction-level)? | Ad-placement control at auction level (Facebook, Google) |
 | MMM | What's the overall spend-response curve? | Years of weekly data, stable measurement |
 
 Combine methods — MMM for the always-on picture, geo/holdout tests as point checks that calibrate it.
@@ -118,6 +119,36 @@ Translate measurement into action:
 - Track whether past measurement actually changed budgets (if not, the program is theater)
 
 **Gate:** Report links each finding to a budget decision with stated uncertainty.
+
+## Practitioner Grounding & Decision Rules
+
+Built from Eric Seufert (ad economics), AdMaxxer/AdSights/Metricuno (incrementality practice), and Garrett Johnson (ghost ads research). Full research: practitioner-intelligence/syntheses/paid-strategy.md.
+
+- **Seufert (T1)**: multi-channel spend guarantees redundant spend — the question is never "is my attribution right" but "what is each channel's incremental contribution". Run macro (MMM/MER) monthly/quarterly and micro (tests) weekly as separate loops. Payback window by cash position.
+- **Garrett Johnson (T1)**: ghost ads are the cleanest incrementality method — auction-level randomization removes geo-matching confounds.
+- **AdSights/Metricuno (T2, vendor)**: iROAS divergence benchmarks — brand search incrementality factor ~0.10-0.25x reported, retargeting ~0.20-0.35x; brand search can report 10x+ but true iROAS 1.5-3x. Digital lift tests need 5-15k users per arm. Geo tests need 6-8 matched markets and a pre-test baseline.
+
+Decision rules:
+1. IF deciding where to run the next incrementality test THEN test brand search and retargeting first — the two most over-credited channels (AdSights — EMPIRICAL vendor, T2).
+2. IF designing a geo test with <6-8 matched markets or no pre-period baseline THEN redesign or don't run — "spending €40k on a confounded holdout is worse than not testing" (Metricuno — HEURISTIC, T2).
+3. IF designing a digital lift test THEN size for 5-15k users per arm minimum, else expect inconclusive CIs (AdSights — EMPIRICAL vendor, T2).
+4. IF the overlap tax (sum of platform ROAS × spend ÷ total revenue − 1) exceeds ~35% THEN platform ROAS is materially inflated; measurement findings should drive budget changes (AdMaxxer — EMPIRICAL vendor, T2).
+5. IF a creative A/B test claims "incrementality" THEN reject the framing — creative tests measure relative creative performance, not channel incrementality (AdSights — EMPIRICAL vendor, T2).
+6. IF measurement findings have not changed a budget in two quarters THEN the program is theater — pre-register each test's decision rule before launch (existing Step 6 + Seufert — T1).
+
+## Metrics
+
+- **iROAS** (incremental revenue ÷ incremental spend): the allocation-grade number. Benchmarks (directional): brand search ~0.10-0.25x reported ROAS; retargeting ~0.20-0.35x (AdSights/Metricuno — T2).
+- **Overlap tax** = sum(platform ROAS × platform spend) ÷ total revenue − 1; >35% = platform fiction (AdMaxxer — T2).
+- **MER** = total revenue ÷ total ad spend; target ≈ 1.3 ÷ contribution margin; the always-on truth layer (AdMaxxer — T2).
+- **Reported-vs-incremental gap**: publish per channel; the gap IS the finding.
+
+## Sources
+
+1. Eric Seufert, "Media mix models are the future of mobile advertising"; "The emerging marketing economist" | mobiledevmemo.com | tier 1 | 2026-08-14
+2. Garrett Johnson (via Seufert), "What is advertising incrementality?" | mobiledevmemo.com podcast | tier 1 | 2026-08-14
+3. AdMaxxer, "Blended MER vs ROAS: When Each Breaks" | admaxxer.com | tier 3 (vendor) | 2026-08-14
+4. AdSights / Metricuno incrementality guides | vendor blogs | tier 3 | 2026-08-14
 
 ## Evaluation & QA
 
