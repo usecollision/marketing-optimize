@@ -131,6 +131,32 @@ Define what gets reported when:
 
 **Gate:** Reporting rhythm defined with audience and format for each cadence.
 
+## Practitioner Grounding & Decision Rules
+
+Named grounding: John Cutler (Vanity Metric Test), Gibson Biddle (proxy metrics, North Star nuance), Avinash Kaushik (KPI hierarchy, targets). Confidence: T1 = verified primary; T2 = well-known; T3 = caution.
+
+- IF a metric lacks context ("compared to", "as input into", "balanced by"), clear intent, or guides no action THEN it is a vanity metric — drop or redefine it (Cutler, FRAMEWORK, T1).
+- IF defining a north-star/engagement metric THEN phrase proxies as thresholds, not averages: "% of [segment] who do ≥[X] by [Y time]" — averages hide distribution failures (Biddle, FRAMEWORK, T1).
+- IF a metric rises but no tactic changes when it drops THEN it belongs off the dashboard (Cutler, HEURISTIC, T1).
+- IF the team can't influence the NSM directly THEN add input/proxy metrics; the NSM is a lagging multi-year output, "a bit out of reach" by design (Cutler/Biddle, HEURISTIC, T1).
+- IF a dashboard metric has no pre-assigned target THEN remove it; dashboards carry ~6 KPIs per exec level, each with target + benchmark (Kaushik, HEURISTIC, T1).
+- IF reporting averages THEN add distribution/cohort view alongside (Biddle, T1).
+- IF a proxy metric shows no correlation to the engagement metric after ~2 quarters THEN replace it (Biddle, T1).
+
+## Metrics
+
+- Primary: % of dashboard metrics with targets + owners; vanity-metric count (should trend to 0); proxy→NSM correlation.
+- Guardrails: metric gaming signals (targets met but outcomes flat), average-vs-distribution divergence.
+- Timebox: audit the metric set quarterly; re-validate proxy correlations every 2 quarters.
+
+## Sources
+
+1. John Cutler — What Are Vanity Metrics and How to Stop Using Them | amplitude.com/blog/vanity-metrics | T1 | 2026-08-15
+2. Gibson Biddle — How do you establish product metrics to evaluate success? | askgib.substack.com/p/how-do-you-establish-product-metrics | T1 | 2026-08-15
+3. Avinash Kaushik — Slaying the Data Puking Dragon | kaushik.net/avinash/slaying-data-puking-dragon-effective-dashboards | T1 | 2026-08-15
+
+Full synthesis: practitioner-intelligence/syntheses/analytics.md
+
 ## Evaluation & QA
 
 ### Common Failure Modes

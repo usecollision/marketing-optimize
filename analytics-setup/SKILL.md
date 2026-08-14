@@ -138,6 +138,31 @@ Make tracking maintainable:
 
 **Gate:** Tracking plan published with a named owner; someone other than you can maintain it.
 
+## Practitioner Grounding & Decision Rules
+
+Named grounding: Krista Seiden (GA4 setup best practice), Avinash Kaushik (measurement = decisions), Chris Mercer (GA4 pragmatics), Michele Kiss (measure what matters). Confidence: T1 = verified primary; T2 = well-known; T3 = caution.
+
+- IF setting up a new GA4 property THEN: install via GTM config tag, enable Enhanced Measurement, register custom dimensions/metrics, set data retention to max (14mo free / 50mo 360), and choose the attribution model explicitly — do not accept defaults blindly (Seiden, TACTIC, T1).
+- IF the measurement plan has no decisions attached THEN rewrite it: every event/dimension must answer a question someone will act on (Kaushik/Kiss, FRAMEWORK, T1).
+- IF data retention is left at 2 months THEN extend it before building custom reports — Explore/calculated data is unavailable past the retention window (Seiden, FACT, T1).
+- IF GA4's default data-driven attribution is used without review THEN check whether it matches the buying cycle; GA4 lets you switch models in real time (Seiden, TACTIC, T1).
+- IF custom events are needed THEN implement via GTM (config tag + event tags) rather than raw code where possible (Seiden, TACTIC, T1).
+- IF the tool is being debated (GA4 vs alternatives) THEN resolve the question first: what decision does this data feed? Tool is secondary (Kiss/Mercer, OPINION, T2).
+
+## Metrics
+
+- Primary: measurement plan coverage (tracked events vs planned events = 100%), data-quality checks (unassigned traffic <5%, spam referrers filtered).
+- Guardrails: % of reports with an owner+decision, tracking-debugger passes on key flows.
+- Timebox: audit setup quarterly; re-verify events after every site/platform change.
+
+## Sources
+
+1. Krista Seiden — The Ultimate Guide for Setting Up a GA4 Property | kristaseiden.com/the-ultimate-guide-for-setting-up-a-google-analytics-4-property | T1 | 2026-08-15
+2. Avinash Kaushik — Slaying the Data Puking Dragon | kaushik.net/avinash/slaying-data-puking-dragon-effective-dashboards | T1 | 2026-08-15
+3. Chris Mercer / Michele Kiss — GA4 pragmatics & measurement discipline | T2 | 2026-08-15
+
+Full synthesis: practitioner-intelligence/syntheses/analytics.md
+
 ## Evaluation & QA
 
 ### Common Failure Modes

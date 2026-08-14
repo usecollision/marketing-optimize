@@ -95,6 +95,32 @@ Invoke when:
 
 **Gate:** Data dictionary and caveats visible; quarterly review on the calendar.
 
+## Practitioner Grounding & Decision Rules
+
+Named grounding: Avinash Kaushik (KPIs with targets, outlier focus), John Cutler (context/intent/actionability), Gibson Biddle (thresholds over averages). Confidence: T1 = verified primary; T2 = well-known; T3 = caution.
+
+- IF a dashboard metric has no pre-assigned target AND no decision attached THEN remove it — "focus only on KPIs, eliminate metrics" (Kaushik, HEURISTIC, T1).
+- IF the dashboard shows more than ~6 KPIs per exec level THEN re-hierarchy: ~6 for CEO, ~6 for CMO, diagnostics live in analysis views, not dashboards (Kaushik, HEURISTIC, T1).
+- IF KPI performance is within normal range THEN don't surface it; report only outliers (>3σ from the mean) with a hypothesis (Kaushik, HEURISTIC, T1).
+- IF a metric lacks context/intent/actionability THEN flag as vanity and fix or drop (Cutler, FRAMEWORK, T1).
+- IF the dashboard reports averages THEN add threshold/cohort views — "% of users who do ≥X by Y" (Biddle, FRAMEWORK, T1).
+- IF targets look sandbagged THEN benchmark externally before accepting (Kaushik, T1).
+- IF a metric moves but nobody changes tactics THEN remove it from the dashboard (Cutler, T1).
+
+## Metrics
+
+- Primary: % of dashboard KPIs with target + owner + decision; outlier alerts issued per period; dashboard usage (who opens, what they act on).
+- Guardrails: vanity-metric count, average-vs-threshold divergence, sandbagged-target detection.
+- Timebox: quarterly KPI review; remove/add metrics only at review.
+
+## Sources
+
+1. Avinash Kaushik — Five Strategies for Slaying the Data Puking Dragon | kaushik.net/avinash/slaying-data-puking-dragon-effective-dashboards | T1 | 2026-08-15
+2. John Cutler — What Are Vanity Metrics and How to Stop Using Them | amplitude.com/blog/vanity-metrics | T1 | 2026-08-15
+3. Gibson Biddle — How do you establish product metrics to evaluate success? | askgib.substack.com/p/how-do-you-establish-product-metrics | T1 | 2026-08-15
+
+Full synthesis: practitioner-intelligence/syntheses/analytics.md
+
 ## Evaluation & QA
 
 ### Common Failure Modes
