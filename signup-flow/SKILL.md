@@ -106,6 +106,44 @@ Make improvement measurable:
 
 **Gate:** Measurement plan with primary metric, baseline, and sequenced test hypotheses.
 
+## Practitioner Grounding
+- **Gibson Biddle** — activation/proxy metrics: "% of users who do at least X by time Y" (Netflix: % of new customers streaming ≥15 min in first month); thresholds and cohorts, never averages (FRAMEWORK, T1).
+- **John Cutler** — activation must guide action and predict retention; "logged in" is a vanity proxy; NSM needs input metrics (FRAMEWORK, T1).
+- **Peep Laja** — friction-first: every form field is a gate; research before hypothesis (FRAMEWORK, T2).
+- **Jon MacDonald** — below ~1K visits/week to the flow, no valid small-effect A/B; rapid-test or ship reversibly (HEURISTIC, T2).
+- **Avinash Kaushik** — every metric needs a target and a decision; outliers (>3σ) get attention (HEURISTIC, T1).
+
+## Decision Rules
+1. IF activation is undefined THEN define it as "% of [segment] doing ≥[threshold] by [time]" and validate against retention before freezing (Biddle, FRAMEWORK, T1).
+2. IF "logged in" or "account created" is proposed as activation THEN reject — it doesn't predict retention (Cutler, FRAMEWORK, T1).
+3. IF signup completion is rising but activation is flat THEN shift focus — signups without activation are vanity (Cutler, HEURISTIC, T2).
+4. IF a signup-flow test is planned AND traffic <1K visits/week THEN use the low-traffic path: concept tests or ship + honest before/after (MacDonald, HEURISTIC, T2).
+5. IF the aha moment is unknown THEN test candidate milestones against week-4/8 retention on historical cohorts before choosing (Cutler/Biddle, EMPIRICAL, T2).
+6. IF a field lacks a current consumer THEN defer it to post-signup progressive profiling (Laja, HEURISTIC, T2).
+7. IF a milestone metric can't influence a decision THEN don't put it on the dashboard (Kaushik, HEURISTIC, T1).
+
+## Metrics
+- Primary: signup→activation rate (or time-to-activation) with a frozen definition.
+- Secondary: signup completion, day-1 and day-7 retention, support-contact rate, activation↔retention correlation.
+- Guardrails: signup volume (don't trade volume for quality), spam/fake signups, email opt-out rate.
+- Timebox: re-measure 2 weeks after each shipped change; re-validate the activation definition quarterly.
+
+## Practitioner Failure Modes
+- Optimizing signup completion while activation stays broken — signups up, revenue flat (Cutler).
+- Activation chosen by opinion instead of retention correlation (Biddle/Cutler).
+- Removing fields sales silently depends on (skill-consistent).
+- Onboarding that teaches features instead of driving to the aha moment (Biddle).
+- Averages masking distribution — some cohorts activate, most don't (Biddle).
+- Testing too many flow changes at once and misattributing the win (Sullivan).
+
+## Sources
+1. Gibson Biddle — product metrics/activation | askgib.substack.com/p/how-do-you-establish-product-metrics | T1 | 2026-08-15
+2. John Cutler — vanity metrics & activation | amplitude.com/blog/vanity-metrics | T1 | 2026-08-15
+3. Peep Laja — ResearchXL friction research | conversionxl.com | T2 | 2026-08-15
+4. Jon MacDonald — traffic thresholds (The Good) | thegood.com | T2 | 2026-08-15
+5. Avinash Kaushik — KPI hierarchy | kaushik.net/avinash | T1 | 2026-08-15
+6. Synthesis: practitioner-intelligence/syntheses/cro.md + analytics.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

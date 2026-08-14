@@ -103,6 +103,46 @@ Invoke when:
 
 **Gate:** Accessibility pass done, edge states tested, test plan for copy variants written.
 
+## Practitioner Grounding
+- **Baymard Institute** — form-field research: average checkout has 23.48 form elements vs ~12 achievable; 20–60% reduction possible; 16→8 fields ≈ 25–35% conversion lift; users abandon when they can't complete a field (EMPIRICAL, T1).
+- **Peep Laja** — friction-first CRO: every field is a gate; research before hypothesis; copy from customer research (FRAMEWORK, T2).
+- **Michael Aagaard** — microcopy voice: outcome-driven button copy ("Get my …" patterns replicated across sites); trust/privacy microcopy can hurt when added without testing (−18.7% case) (EMPIRICAL, T2).
+- **Jon MacDonald** — traffic thresholds: <1K visits/week, no valid small-effect A/B; run big-swing copy tests or ship reversibly (HEURISTIC, T2).
+- **NN/g** — labels persist, placeholders exemplify; error messages must be recoverable (FRAMEWORK, T2).
+
+## Decision Rules
+1. IF a field has no current consumer THEN kill it or defer to post-conversion — field reduction is the highest-leverage form change (Baymard/Laja, EMPIRICAL, T2).
+2. IF a form has >12 default elements THEN plan a 20–60% reduction before testing copy (Baymard, EMPIRICAL, T1).
+3. IF an error message lacks cause + fix THEN rewrite inline next to the field, preserving the user's input (NN/g/Baymard, FRAMEWORK, T2).
+4. IF button copy describes the mechanism ("Submit") THEN change it to the outcome promised before the form (Aagaard, EMPIRICAL, T2).
+5. IF validation rejects formats users naturally type THEN forgive (spaces, dashes, lowercase) — aggressive validation drives abandonment (Baymard, EMPIRICAL, T1).
+6. IF microcopy tests are planned on a <1K visits/week form THEN run one big copy swing or ship + honest before/after, not a long A/B (MacDonald, HEURISTIC, T2).
+7. IF adding a trust/privacy element THEN test it — trust additions can reduce conversion (Aagaard, EMPIRICAL, T2).
+
+## Metrics
+- Primary: form completion rate; per-field abandonment (where in the form users leave).
+- Secondary: error rate per field, re-submission rate after error, data quality retained (completeness of collected fields).
+- Guardrails: valid-lead rate (don't trade quality for completion), support contacts about forms, time-to-complete.
+- Timebox: re-measure 2 weeks after a shipped change; re-audit fields quarterly against consumers.
+
+## Practitioner Failure Modes
+- Placeholder-as-label forms that become illegible once typing starts (NN/g).
+- Error messages that say what went wrong but not how to fix it (NN/g/Baymard).
+- Adding fields back "for segmentation" after completion rates dropped (Laja).
+- Progressive disclosure hiding required fields users never open (Baymard).
+- Aggressive validation rejecting legitimate input (Baymard, EMPIRICAL).
+- Polishing microcopy while the real problem is a broken submit handler (skill-consistent).
+- Trust-element additions without testing (Aagaard privacy-policy case).
+
+## Sources
+1. Baymard Institute — Checkout flow average form fields | baymard.com/blog/checkout-flow-average-form-fields | T1 | 2026-08-15
+2. Baymard — Checkout optimization from 16 fields to 8 | baymard.com/blog/checkout-optimization-from-16-fields-to-8 | T1 | 2026-08-15
+3. Michael Aagaard — copy/microcopy case studies | aagaard.co / CXL | T2 | 2026-08-15
+4. Peep Laja — ResearchXL friction research | conversionxl.com | T2 | 2026-08-15
+5. NN/g — form design & error message guidelines | nngroup.com | T2 | 2026-08-15
+6. Jon MacDonald — traffic thresholds (The Good) | thegood.com | T2 | 2026-08-15
+7. Synthesis: practitioner-intelligence/syntheses/cro.md + domains/optimize-longtail/baymard.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

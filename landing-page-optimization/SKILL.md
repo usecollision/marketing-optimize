@@ -122,6 +122,46 @@ Assemble the output:
 
 **Gate:** Test plan with ranked hypotheses, success metrics, and sequencing.
 
+## Practitioner Grounding
+- **Michael Aagaard** — message match is the biggest copy lever: Saxo +99.4%, Bettingexpert +31.5% from headline/value-clarity changes (EMPIRICAL, T2).
+- **Talia Wolf** — messaging audit and emotional targeting before layout work; analytics shows the leak, not why (FRAMEWORK, T2).
+- **Peep Laja** — research before hypothesis; score ideas (PXL) before building; copy from customer research (FRAMEWORK, T2).
+- **Jon MacDonald** — <1K visits/week: no valid small-effect A/B; rapid-test concepts or ship reversible changes (HEURISTIC, T2).
+- **Georgi Georgiev** — cosmetic tests (button color, microcopy) are the field's #1 waste; changes must be noticeable (EMPIRICAL, T2).
+- **MECLABS / Bryan Eisenberg** — LIFT model: value clarity, relevance, distraction removal (FRAMEWORK, T2).
+
+## Decision Rules
+1. IF ad/SERP promise ≠ page headline THEN fix message match before any other test (Aagaard, EMPIRICAL, T2).
+2. IF page <1K visits/week THEN skip small-effect A/B; run one big-swing concept test or ship + honest before/after (MacDonald, HEURISTIC, T2).
+3. IF a hypothesis is opinion-only THEN score it (Evidence/Impact/Effort/Traffic/ROI or PXL) and drop the bottom (Massey/Laja, FRAMEWORK, T2).
+4. IF the proposed change is invisible to users (color, spacing, microcopy on low-traffic pages) THEN don't test it — spend the slot on message/value (Georgiev, EMPIRICAL, T2).
+5. IF value prop is unclear or conversion leaks exist without explanation THEN run messaging research (customer language, Wolf's emotional-gap questions) before layout tests (Wolf, FRAMEWORK, T2).
+6. IF mobile is >50% of traffic AND mobile conversion lags desktop THEN fix the mobile environment (speed, tap targets) before message tests (universal, HEURISTIC, T2).
+7. IF redesigning a page THEN only after diagnosis — full redesigns reset learning and dip conversion for weeks (growwithba, HEURISTIC, T2).
+
+## Metrics
+- Primary: goal conversion rate by source (message-match compliance per source); revenue per visitor where trackable.
+- Guardrails: bounce on matched vs unmatched sources; CTA click-through; form start vs completion; LCP/INP.
+- Timebox: 2 full business cycles for any A/B decision; re-audit message match after every campaign change.
+- Re-measure when: a new traffic source is added or an ad promise changes.
+
+## Practitioner Failure Modes
+- Testing cosmetics while message mismatch is the real leak (Aagaard, Georgiev).
+- Redesigning before diagnosing (growwithba: redesigns dip conversion for weeks).
+- Optimizing for one source while traffic comes from another (skill-consistent; Aagaard source-match).
+- Heatmaps as verdicts — they generate hypotheses; tests decide (universal).
+- Trust-element additions without testing (Aagaard privacy-policy case: −18.7%).
+- Declaring winners from before/after without concurrent control (MECLABS).
+
+## Sources
+1. Michael Aagaard — copy/message-match case studies | aagaard.co / CXL | T2 | 2026-08-15
+2. Talia Wolf — Emotional Targeting / messaging-first CRO | getuplift.co | T2 | 2026-08-15
+3. Peep Laja — ResearchXL & PXL | conversionxl.com | T2 | 2026-08-15
+4. Jon MacDonald — traffic thresholds (The Good) | thegood.com | T2 | 2026-08-15
+5. Georgi Georgiev — "perfect shade of blue" / cosmetic-test waste | georgi.georgiev blog | T2 | 2026-08-15
+6. MECLABS — LIFT model | meclabs.com | T2 | 2026-08-15
+7. Synthesis: practitioner-intelligence/syntheses/cro.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

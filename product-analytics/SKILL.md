@@ -96,6 +96,44 @@ Invoke when:
 
 **Gate:** Weekly readout live; taxonomy review on the calendar; insights flowing to growth owners.
 
+## Practitioner Grounding
+- **John Cutler** — event taxonomy discipline (object_action names), vanity-metric test (context/intent/actionability), identity-merge corruption (FRAMEWORK, T1).
+- **Gibson Biddle** — proxy metrics as "% of users who do ≥X by time Y"; threshold/cohort metrics over averages; NSM needs inputs (FRAMEWORK, T1).
+- **Avinash Kaushik** — dashboards for decisions; KPI hierarchy with targets; outlier alerting >3σ; "slay the data-puking dragon" (HEURISTIC, T1).
+- **Krista Seiden** — measurement setup discipline: custom events/dimensions registered, identity stitched, retention windows set explicitly (TACTIC, T1).
+
+## Decision Rules
+1. IF an event name is generic (clicked_button) THEN rename object_action (invite_sent) with a defined property set (Cutler, TACTIC, T2).
+2. IF defining activation/NSM inputs THEN use threshold-cohort form: "% of [segment] doing ≥[threshold] by [time]" (Biddle, FRAMEWORK, T1).
+3. IF a metric lacks context/intent/actionability THEN mark vanity and replace (Cutler, FRAMEWORK, T1).
+4. IF reporting averages THEN add the distribution/cohort view alongside — averages hide churn (Biddle, EMPIRICAL, T1).
+5. IF identity merges are unhandled THEN fix before trusting any per-user report — merge bugs corrupt every downstream number (Cutler/Seiden, EMPIRICAL, T2).
+6. IF a KPI deviates >3σ from its own baseline THEN escalate with a hypothesis, not blame (Kaushik, HEURISTIC, T1).
+7. IF a metric moves but no tactic changes THEN drop it from the dashboard (Cutler, HEURISTIC, T1).
+8. IF picking a tool THEN match to team: PostHog for self-host/startup budgets, Mixpanel/Amplitude for mature teams, warehouse-native when data engineering exists (skill-consistent, HEURISTIC, T2).
+
+## Metrics
+- Primary: activation rate (frozen definition), retention (N-day or unbounded, documented), feature adoption/depth/stickiness/impact per launch.
+- Guardrails: event-taxonomy drift (distinct event-name count), identity-merge bug rate, dashboard metrics without targets (should be zero).
+- Timebox: weekly readout; quarterly taxonomy review; re-validate activation definition quarterly.
+- Re-measure when: new product surface ships, ID strategy changes, or a launch alters the funnel.
+
+## Practitioner Failure Modes
+- Running product analytics on GA4's session model and discovering per-user funnels are impossible (Seiden).
+- Activation defined as "logged in" because it was easy, not because it predicts retention (Cutler/Biddle).
+- Event-name drift ("signup", "sign_up", "user_signup") until analysis is a grep exercise (Cutler).
+- Cumulative feature dashboards hiding that adoption stopped weeks ago (Biddle cohorts).
+- ID merge bugs silently duplicating users (Cutler/Seiden).
+- North Star picked by the loudest team instead of the data (Cutler).
+- Metrics that become targets get gamed (Cutler, Goodhart in practice).
+
+## Sources
+1. John Cutler — What Are Vanity Metrics and How to Stop Using Them | amplitude.com/blog/vanity-metrics | T1 | 2026-08-15
+2. Gibson Biddle — How do you establish product metrics to evaluate success? | askgib.substack.com/p/how-do-you-establish-product-metrics | T1 | 2026-08-15
+3. Avinash Kaushik — Five Strategies for Slaying the Data Puking Dragon | kaushik.net/avinash/slaying-data-puking-dragon-effective-dashboards | T1 | 2026-08-15
+4. Krista Seiden — Ultimate Guide to Setting up a GA4 Property | kristaseiden.com | T1 | 2026-08-15
+5. Synthesis: practitioner-intelligence/syntheses/analytics.md | T1 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

@@ -95,6 +95,47 @@ Invoke when:
 
 **Gate:** Ownership assigned; quarterly audit scheduled; legacy cleanup plan executed or dated.
 
+## Practitioner Grounding
+- **Dan McGaw** (UTM.io / Funnel.io) — UTM mistakes are permanent: you can't alter analytics parameters after the fact; lowercase + dashes only; match medium to analytics channel groupings; never tag internal links; enforce a documented convention (EMPIRICAL, T1).
+- **Napkyn / Usermaven** — governance is the fix: living UTM guide (accepted values, naming patterns, tracking rules, ownership), monthly review of tagged links, source+medium+campaign minimum on every external link (HEURISTIC, T2).
+- **WebIQ / UTM Guard** — GA4 treats UTM values as case-sensitive → duplicate reports; custom utm_medium values land in Unassigned/miscategorized (EMPIRICAL, T2).
+- **Improvado** — three layers (taxonomy / naming convention / campaign name); >9 fields needs a formal governance committee + owner, else stay at 7 (FRAMEWORK, T3).
+
+## Decision Rules
+1. IF a new UTM value is proposed THEN require lowercase + hyphens and a canonical source/medium pair from the table (McGaw, TACTIC, T2).
+2. IF utm_medium ≠ GA4 default channel value THEN change it — custom mediums become Unassigned (WebIQ, EMPIRICAL, T2).
+3. IF tagging an internal link THEN don't — it overwrites the true source; use events instead (McGaw/utmbuilder, EMPIRICAL, T2).
+4. IF an external link lacks source/medium/campaign THEN it doesn't ship (Usermaven, HEURISTIC, T2).
+5. IF there is no single taxonomy owner THEN appoint one before writing more rules — ownerless governance fails (Napkyn/Usermaven, HEURISTIC, T2).
+6. IF the taxonomy exceeds 9 fields AND no governance committee exists THEN stay at 7 — enforcement beats granularity (Improvado, HEURISTIC, T3).
+7. IF historical values are messy THEN merge at the analytics layer; never edit old links (McGaw, EMPIRICAL, T2).
+8. IF reviewing UTM health THEN re-run the inventory: distinct-value counts, % unassigned, % missing — sprawl should shrink quarterly (Napkyn/McGaw, HEURISTIC, T2).
+
+## Metrics
+- Primary: distinct-value count per parameter (sprawl trend); % of sessions with missing source/medium; % unassigned traffic.
+- Secondary: taxonomy compliance of new links (sampled weekly), violations per quarter, time-to-fix a reported bad tag.
+- Guardrails: never edit historical links; no bare URLs in campaign tools; channel groupings match taxonomy.
+- Timebox: monthly drift review; quarterly full inventory re-run.
+
+## Practitioner Failure Modes
+- A taxonomy so strict people bypass it and tag nothing (Usermaven).
+- No owner — governance doc read once, enforced never (all sources).
+- Case drift (`Email` vs `email`) fragmenting GA4 reports (WebIQ).
+- Custom mediums ending up Unassigned (WebIQ).
+- Syntax errors — ampersand on a URL with no query string → 404; double `?` (Usermaven).
+- Vague campaign names (`launch`, `promo1`) with no context in 3 months (Usermaven).
+- Changing conventions mid-year and blaming the market for the attribution change (skill-consistent).
+- Cleaning history by renaming links, corrupting historical attribution (McGaw).
+
+## Sources
+1. Dan McGaw — UTM and UTM convention best practices | funnel.io/blog/utm-and-utm-convention-best-practices | T1 | 2026-08-15
+2. Dan McGaw — UTM Parameters Best Practices: 21-Point Checklist | web.utm.io/blog/utm-parameters-best-practices | T1 | 2026-08-15
+3. Napkyn — Best Practices for Using UTM Parameters in Marketing Campaigns | napkyn.com/blog/best-practices-for-using-utm-parameters-in-marketing-campaigns | T2 | 2026-08-15
+4. Usermaven — 19 Common UTM Mistakes | usermaven.com/blog/critical-utm-mistakes | T2 | 2026-08-15
+5. WebIQ/UTM Guard — UTM Parameter Best Practices for 2026 | webiq.app/blog/utm-best-practices-2026 | T2 | 2026-08-15
+6. Improvado — Marketing Campaign Taxonomy Guide 2026 | improvado.io/blog/marketing-campaign-taxonomy | T2 | 2026-08-15
+7. Panel: practitioner-intelligence/domains/optimize-longtail/utm-governance.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

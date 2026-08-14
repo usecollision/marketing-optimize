@@ -122,6 +122,48 @@ Wire the stages together into one visible flow:
 
 **Gate:** End-to-end process documented with named handoffs, reporting, and a feedback loop to budget and targeting.
 
+## Practitioner Grounding
+- **Oldroyd, McElheran & Elkington** (HBR 2011, 15,000+ leads) — speed-to-lead is the biggest lever: 5-min response ≈ 100x more likely to connect and 21x more likely to qualify vs 30 min; ~78% buy from the first responder; average B2B response 42–47 hours (EMPIRICAL, T1; replicated by Velocify 3.5M leads, Optifai N=939).
+- **Prospeo** — three-layer scoring: ICP fit as gate → intent as filter → engagement as warmth; never let engagement override bad fit; demo requests override the model; clean data first (HEURISTIC, T2).
+- **Ivris Tech / RevBlack** — calibration rules: above-threshold leads should convert ≥2x; sales acceptance ≥80%; MQL→SQL ≈ 30%; recalibrate on >5-point drift; negative scoring + 30/60/90-day decay (HEURISTIC, T2).
+- **OnTheFuze (HubSpot Elite Partner)** — 8 lifecycle stages; lifecycle = achievement (macro), lead status = rep activity (micro); BANT verification for SQL; SQL→Opportunity <20% = definition too loose; definitions signed by both teams, reviewed quarterly year 1 (FRAMEWORK, T2).
+- **Kubaru / Calendly** — routing safeguards: territory/load/specialization signals, sub-5-minute targets, reassignment of unworked leads (HEURISTIC, T2).
+
+## Decision Rules
+1. IF an inbound lead is high-intent THEN route within 5 minutes — response time is the biggest conversion lever (Oldroyd, EMPIRICAL, T1).
+2. IF scoring THEN apply fit gate → intent filter → engagement warmth, in that order (Prospeo, HEURISTIC, T2).
+3. IF a demo request arrives THEN override the score and route immediately (Prospeo, HEURISTIC, T2).
+4. IF above-threshold leads don't convert ≥2x below-threshold leads THEN recalibrate the model (Ivris, HEURISTIC, T2).
+5. IF sales acceptance <80% OR MQL→SQL <30% OR drifting >5 points THEN tighten fit criteria before touching engagement weights (RevBlack/Ivris, HEURISTIC, T2).
+6. IF SQL→Opportunity <20% after 60–90 days THEN raise the SQL bar — the definition is too loose (OnTheFuze, HEURISTIC, T2).
+7. IF sales rejects a lead THEN recycle to nurture with a coded reason — no silent graveyard (OnTheFuze, FRAMEWORK, T2).
+8. IF scoring old activity THEN apply decay — engagement from 6+ months ago is not engagement (Ivris, HEURISTIC, T2).
+
+## Metrics
+- Primary: speed-to-first-touch (median, target <5 min for high-intent, <1 hr SLA), sales acceptance rate (≥80%), MQL→SQL conversion (~30% band), SQL→Opportunity (≥20%).
+- Secondary: lead-to-revenue velocity, time-in-stage per stage, recycle rate, hygiene score (fill rate, duplicates, stale records).
+- Guardrails: unassigned-lead count, stale-lead count (no touch in N days), scoring-model explainability (AEs can defend any score).
+- Timebox: weekly model review for the first month, quarterly after; monthly SLA review; quarterly hygiene sweep.
+
+## Practitioner Failure Modes
+- Scoring curiosity, not buying intent — the 89-point grad student case; close rate tripled after scrapping the model (Ivris).
+- Premature handoff: pricing-download → SQL; the rep finds a student; marketing-sales trust erodes (OnTheFuze).
+- Routing to empty territories with no reassignment — leads sit for weeks (Kubaru).
+- Scoring on dirty data — the model inherits the rot (Prospeo).
+- Lifecycle stages defined by vibes with no exit criteria or timestamps (OnTheFuze).
+- Marketing optimizing MQL volume while sales ignores the leads — no shared acceptance metric (skill-consistent).
+- Rejected leads with no recycle rule (OnTheFuze).
+
+## Sources
+1. Oldroyd, McElheran & Elkington — The Short Life of Online Sales Leads | hbr.org/2011/03/the-short-life-of-online-sales-leads | T1 | 2026-08-15
+2. Prospeo — Lead Scoring Best Practices (three-layer model) | prospeo.io/s/lead-scoring-best-practices | T2 | 2026-08-15
+3. Ivris Tech — Lead Scoring Best Practices: B2B Guide (calibration, decay) | ivristech.com/lead-scoring-best-practices | T2 | 2026-08-15
+4. RevBlack — RevOps Lead Scoring Playbook (MQL→SQL 30%) | revblack.com/guides/revops-lead-scoring-playbook | T2/T3 | 2026-08-15
+5. NC Squared — Lead Scoring (60–80 threshold) | nc-squared.com/blog/article/what-is-lead-scoring | T2 | 2026-08-15
+6. OnTheFuze — HubSpot Lifecycle Stages Explained (8 stages, BANT, <20% rule) | onthefuze.com/hubspot-insights-blog/hubspot-lifecycle-stages-explained | T2 | 2026-08-15
+7. Kubaru — 7 Lead Routing Best Practices | kubaru.io/blog/lead-routing-best-practices | T2 | 2026-08-15
+8. Panel: practitioner-intelligence/domains/optimize-longtail/revops.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

@@ -112,6 +112,45 @@ Convert analysis into decisions:
 
 **Gate:** Prioritized action plan with owners, hypotheses, and success metrics.
 
+## Practitioner Grounding
+- **Peep Laja** (CXL) — ResearchXL: research (6 methods) before hypotheses; volume × upside × evidence prioritization (FRAMEWORK, T2).
+- **Ronny Kohavi** — sample-size math: effect size, variance, traffic gate; tracking health (SRM/A-A) before any analysis (EMPIRICAL, T1).
+- **Craig Sullivan** — hypothesis format + analytics health checks; never read rates without volumes and error bars (FRAMEWORK, T2).
+- **Jon MacDonald** — below ~1K visits/week, small-effect A/B is invalid; use rapid concept tests or ship reversible changes (HEURISTIC, T2).
+- **Gibson Biddle / John Cutler** — cohort and threshold views catch mix-shift masquerading as funnel breakage (EMPIRICAL, T1).
+- **Talia Wolf** — analytics shows a leak, not why; message/emotional gaps need qualitative research (FRAMEWORK, T2).
+
+## Decision Rules
+1. IF tracking has SRM/known gaps THEN fix instrumentation before diagnosing any stage (Kohavi, EMPIRICAL, T1).
+2. IF a stage drop is <1K visits/week THEN treat it as noise or hypothesis-only, never as a testable signal (MacDonald, HEURISTIC, T2).
+3. IF choosing which stage to fix THEN rank by marginal impact (step rate × potential lift × volume), not by drop-off size (Laja, FRAMEWORK, T2).
+4. IF a leak is confined to one source/device/segment THEN diagnose that segment — the rest of the funnel is not broken (Laja, TACTIC, T2).
+5. IF cohort conversion shifted permanently at a date THEN hunt for product/market events before blaming pages (Biddle, TACTIC, T1).
+6. IF using benchmarks THEN prefer internal baseline/trend; external ranges are labeled heuristics only (Massey/Kiss, HEURISTIC, T2).
+7. IF a stage shows drop-off but data can't explain why THEN add qualitative evidence (recordings, surveys, message audit) before hypothesizing (Wolf/Laja, FRAMEWORK, T2).
+
+## Metrics
+- Primary: per-stage step conversion WITH volumes (a rate without volume proves nothing); overall conversion; marginal impact per stage.
+- Guardrails: SRM status per test period; event-taxonomy drift; mix shift (source/device share).
+- Timebox: re-measure 2 weeks after shipping any fix, then monthly; cohorts evaluated on a rolling 4-week cadence.
+- Re-measure when: a campaign launch, site redesign, or product change could reset baselines.
+
+## Practitioner Failure Modes
+- Optimizing the biggest drop-off instead of the biggest upside (DRIP RPU lesson; Laja) — the field's classic error.
+- Reporting rates without volumes — "a rate on 50 users proves nothing" (Kohavi, Sullivan).
+- Confusing mix shift with funnel breakage — cohorts catch this (Biddle).
+- Benchmark comparisons across business models (self-serve vs enterprise sales) (Kiss).
+- Fixing the funnel while instrumentation silently breaks (Kohavi/Vermeer SRM).
+
+## Sources
+1. Peep Laja — ResearchXL / PXL frameworks | CXL blog | T2 | 2026-08-15
+2. Ronny Kohavi et al. — Trustworthy Online Controlled Experiments / pitfalls papers | T1 | 2026-08-15
+3. Craig Sullivan — hypothesis format + analytics health checks | T2 | 2026-08-15
+4. Jon MacDonald — 1K-visits rule (The Good) | T2 | 2026-08-15
+5. Gibson Biddle — proxy metrics / threshold cohort metrics | askgib.substack.com | T1 | 2026-08-15
+6. John Cutler — vanity metric test | amplitude.com/blog/vanity-metrics | T1 | 2026-08-15
+7. Synthesis: practitioner-intelligence/syntheses/cro.md + analytics.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

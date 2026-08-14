@@ -133,6 +133,46 @@ Regardless of model, always track:
 
 **Gate:** MER + Channel CAC + Blended CAC calculated and tracked.
 
+## Practitioner Grounding
+- **Eric Seufert** — platform/last-click attribution overstates channel contribution; overlap is near-certain once >1 channel; MMM macro + campaign micro on separate cadences (EMPIRICAL, T2).
+- **AdMaxxer / AdSights** — overlap tax: sum of platform ROAS × spend vs total revenue; >35% gap = platform ROAS fiction; MER target ≈ 1.3 / contribution margin; iROAS on brand search ~10–25% of reported (EMPIRICAL but vendor-sourced, T3).
+- **Metricuno** — incrementality test design: ≥6–8 matched geo pairs, pre-test baseline, power checks — "spending €40k on a confounded holdout is worse than not testing" (EMPIRICAL, T2).
+- **Binet & Field** — different metrics for different decisions: short-term with ROI, long-term with brand effects; don't measure brand with dollar estimates (FRAMEWORK, T1).
+- **Avinash Kaushik** — every metric needs a target and a decision attached; metrics without decisions are decoration (HEURISTIC, T1).
+
+## Decision Rules
+1. IF <3 channels AND spend <~$20k/mo THEN last/first-touch comparison is enough — do not build multi-touch or MMM (maturity ladder, HEURISTIC, T2).
+2. IF budget decisions rely on platform ROAS THEN compute MER and the overlap tax first; act on iROAS, not reported ROAS (Seufert/AdMaxxer, EMPIRICAL, T2).
+3. IF suspecting a channel (brand search, retargeting, PMax) THEN run a valid incrementality test before cutting — holdout design with ≥6–8 pairs and baseline (AdSights/Metricuno, EMPIRICAL, T2).
+4. IF evaluating MMM THEN require data volume (~$50–100k+/mo) and statistical capability; below that use MER + lift tests (Seufert, OPINION, T2).
+5. IF a metric must move budget THEN attach it to a decision and a cadence (monthly drift / quarterly tests / annual split review) (Kaushik/Binet & Field, HEURISTIC, T1).
+6. IF measuring brand THEN use brand-effect metrics (mental availability, share of search), not ROI gymnastics (Binet & Field, FRAMEWORK, T1).
+7. IF MER drifts >10% in a month THEN investigate overlap/retargeting issues before reallocating (AdMaxxer, HEURISTIC, T3).
+
+## Metrics
+- Primary: MER at P&L level (target ≈ 1.3/contribution margin), blended CAC (< LTV/3), iROAS per channel for budget decisions.
+- Guardrails: overlap tax (sum platform ROAS×spend / revenue − 1, watch >35%), platform ROAS used for creative only, incrementality-test sample validity.
+- Secondary: MMM output (quarterly, at scale), share-of-search/branded volume for the brand stream, CAC payback window.
+- Timebox: monthly MER review; quarterly incrementality tests on suspect channels; annual model re-selection vs stage.
+
+## Practitioner Failure Modes
+- Perfect-attribution chasing — model complexity beyond data maturity (maturity ladder).
+- Over-crediting last touch and starving awareness work (Seufert; Binet & Field short-termism).
+- Building MMM without data volume or capability (Seufert).
+- Underfunded/confounded incrementality tests — worse than not testing (Metricuno, AdSights).
+- Ignoring iOS privacy/cookie deprecation in model assumptions (Seufert).
+- Measuring brand with ROI estimates → finance defunds it (Binet & Field, Ritson).
+- Fixed model never revisited as the business changes (Francois).
+
+## Sources
+1. Eric Seufert — Mobile Dev Memo (attribution, incrementality) | mobiledevmemo.com | T2 | 2026-08-15
+2. AdMaxxer — MER vs ROAS / overlap tax | admaxxer.com | T3 | 2026-08-15
+3. AdSights — incrementality testing guides | adsights.io | T3 | 2026-08-15
+4. Metricuno — incrementality test design | metricuno.com | T2 | 2026-08-15
+5. Binet & Field — Long and the Short of It / Effectiveness in Context | IPA | T1 | 2026-08-15
+6. Avinash Kaushik — dashboards/decision metrics | kaushik.net/avinash | T1 | 2026-08-15
+7. Synthesis: practitioner-intelligence/syntheses/paid-strategy.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

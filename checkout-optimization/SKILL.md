@@ -118,6 +118,45 @@ Invoke when:
 
 **Gate:** Every change shipped with a test or documented reason; guardrails checked; funnel re-baselined.
 
+## Practitioner Grounding
+- **Baymard Institute** (Christian Holst) — the primary checkout-research authority: 14 years, 54,000+ hours, 272 think-aloud sessions, 11,777 survey participants, 150+ site audits. Checkout design is frequently the SOLE cause of abandonment for cart-adders (EMPIRICAL, T1).
+- **Baymard consumer research (2024)** — 48% of abandoners cite extra costs higher than expected (#1); 26% cite forced account creation (#2); ~42% were "browsing, not ready to buy" (unavoidable); avg cart abandonment 70.2% (EMPIRICAL, T1).
+- **Baymard form-field benchmarks** — average checkout shows 23.48 form elements vs ~12 achievable (7 fields); 20–60% reduction possible; 16→8 fields ≈ 25–35% conversion lift; perceived field count beats actual: 15 fields across 3 logical steps outperforms 10 fields on one page by 11–14% (EMPIRICAL, T1).
+- **Baymard A/B evidence** — one-page vs multi-step showed no significant difference; format is a context decision (AOV, complexity, mobile share), not dogma (EMPIRICAL, T1).
+- **Peep Laja / Jon MacDonald** — CRO process (research first, guardrails, traffic thresholds) applies to checkout tests (FRAMEWORK, T2).
+
+## Decision Rules
+1. IF shipping/taxes/fees are not shown before the payment step THEN surface them earlier — top abandonment cause at 48% (Baymard, EMPIRICAL, T1).
+2. IF checkout requires account creation THEN make guest checkout the default; offer account creation after purchase (Baymard delayed-account-creation, EMPIRICAL, T1).
+3. IF default form elements >12 THEN cut 20–60% before testing anything else (Baymard, EMPIRICAL, T1).
+4. IF choosing flow format THEN one-page/accordion for AOV <$150, simple products, mobile-heavy traffic; multi-step for AOV >$200, B2B/configurable, extra info collection (Baymard, EMPIRICAL, T1).
+5. IF a long form must stay long THEN group it into 3 logical steps — perceived simplicity wins by 11–14% (Baymard, EMPIRICAL, T1).
+6. IF abandonment data says "browsing" THEN exclude that share from optimization targets — it's not fixable in checkout (Baymard, EMPIRICAL, T1).
+7. IF a checkout change is tested AND traffic is low THEN use the low-traffic path (big-swing test or ship + honest before/after), not a long small-effect A/B (MacDonald, HEURISTIC, T2).
+
+## Metrics
+- Primary: cart→purchase conversion; step conversion per checkout stage.
+- Guardrails: revenue per visitor, AOV, margin per order, cancellation/refund rate, support contacts (a conversion win that destroys margin is a loss).
+- Diagnostic: abandonment reason mix (costs vs account vs complexity vs browsing) via exit surveys/analytics; default form-element count vs 12; mobile vs desktop step conversion.
+- Timebox: re-measure 2 weeks after each shipped change; re-baseline the funnel quarterly.
+
+## Practitioner Failure Modes
+- Chasing the ~42% "browsing" share — unfixable in checkout (Baymard).
+- Hiding shipping cost until the payment step (Baymard #1 cause).
+- Forcing account creation pre-purchase (Baymard #2 cause).
+- Aggressive validation rejecting legitimate input — users leave when they can't complete a field (Baymard).
+- Cutting fields fulfillment actually needs — cut with a consumer, not a scalpel (Baymard).
+- Adding payment methods "because competitors have them" with no customer evidence (skill-consistent).
+- Shipping threshold that lifts conversion but loses money on margin (skill-consistent).
+
+## Sources
+1. Baymard Institute — Checkout Usability research overview | baymard.com/research/checkout-usability | T1 | 2026-08-15
+2. Christian Holst — Reasons for Cart Abandonment – Why 70% of Do So | baymard.com/blog/ecommerce-checkout-usability-report-and-benchmark | T1 | 2026-08-15
+3. Baymard — Checkout flow average form fields | baymard.com/blog/checkout-flow-average-form-fields | T1 | 2026-08-15
+4. Baymard — Checkout optimization from 16 fields to 8 | baymard.com/blog/checkout-optimization-from-16-fields-to-8 | T1 | 2026-08-15
+5. Baymard — Cart abandonment rate list | baymard.com/lists/cart-abandonment-rate | T1 | 2026-08-15
+6. Panel: practitioner-intelligence/domains/optimize-longtail/baymard.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes

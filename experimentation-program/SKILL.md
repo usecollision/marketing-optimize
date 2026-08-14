@@ -130,6 +130,49 @@ A significant lift is necessary but not sufficient to ship:
 
 **Gate:** Shipping checklist applied to every winner; decisions recorded with rationale in the library.
 
+## Practitioner Grounding
+- **Lukas Vermeer** — the program metric is "decisions supported," not tests run; the flywheel: more tests → more decisions → more investment (FRAMEWORK, T2).
+- **Ben Labay (Speero)** — Phase Gate process: data & insights before hypotheses; pre-committed, "undeniably concluded" test plans; Data-to-Action cadence (FRAMEWORK, T2).
+- **Ronny Kohavi** — OEC (overall evaluation criterion) + guardrails pre-registered; velocity and trustworthiness must scale together; HiPPO kills programs (EMPIRICAL, T1).
+- **Georgi Georgiev** — peeking inflates false positives; peek only to abort harm, never to stop for a win (EMPIRICAL, T1).
+- **Atticus Li / adasight** — stakeholder overrides and output-KPI programs are the most expensive failures; wins that don't ship are "just stories" (EMPIRICAL, T2).
+- **Craig Sullivan** — the industry-standard hypothesis format; run ≥2 business cycles; judge on error bars (FRAMEWORK, T2).
+
+## Decision Rules
+1. IF the program KPI is tests-run THEN replace with decisions-supported + cumulative shipped impact (Vermeer, FRAMEWORK, T2).
+2. IF win rate <20% THEN hypothesis quality is the problem — more research, fewer cosmetic tests; if >40%, tests are too safe (DRIP/growwithba band, HEURISTIC, T2).
+3. IF a test looks like a win early THEN don't stop for significance — peek only to abort harm (Kohavi/Georgiev, EMPIRICAL, T1).
+4. IF a winner degrades a pre-committed guardrail THEN it does not ship (Kohavi/Labay, FRAMEWORK, T1).
+5. IF closing a test THEN require a mechanism-level learning — losses included, or the same mistake repeats (Sullivan/Labay, FRAMEWORK, T2).
+6. IF a stakeholder overrides a decision without data THEN escalate — override culture is the #1 program killer (Atticus Li/adasight, EMPIRICAL, T2).
+7. IF sustaining N decisions/month THEN keep 3–5x N scored hypotheses in the backlog (Vermeer flywheel, HEURISTIC, T2).
+8. IF deciding test vs ship vs redesign THEN apply the traffic/message-match decision tree first (cro.md rules, FRAMEWORK, T2).
+
+## Metrics
+- Primary: decisions supported per quarter; cumulative impact of shipped winners; implementation rate (wins shipped / wins decided).
+- Secondary: velocity (tests launched, tests decided, median hypothesis→decision days), win-rate band 20–40%, cycle time.
+- Guardrails: SRM rate (should be at chance), guardrail breaches at ship time (zero tolerance), calibration (share of shipped tests holding lift after rollout), unshipped-winner backlog.
+- Timebox: weekly triage, biweekly readout, monthly program review, quarterly OKR re-map.
+
+## Practitioner Failure Modes
+- Celebrating velocity while cumulative business impact stays flat (Vermeer; feature factory).
+- A learning library full of wins and empty of losses (Sullivan, Labay).
+- Early stopping on significance — the #1 cited failure across all sources (Kohavi, Georgiev, HubSpot, DRIP).
+- Shipping significant-but-tiny lifts that don't clear practical significance (Kohavi).
+- Guardrails defined but never checked at ship time (Kohavi OEC).
+- Stakeholder/HiPPO overrides destroying program credibility (Atticus Li, Kohavi).
+- Cosmetic/researchless tests inflating win counts without moving revenue (Georgiev, DRIP).
+- No owner for velocity, quality, and learning capture (adasight).
+
+## Sources
+1. Ronny Kohavi et al. — Trustworthy Online Controlled Experiments / pitfalls papers | T1 | 2026-08-15
+2. Georgi Georgiev — peeking/statistics book & articles | T2 | 2026-08-15
+3. Ben Labay — Phase Gate experimentation | Speero | T2 | 2026-08-15
+4. Lukas Vermeer — experimentation flywheel / decisions-supported | T2 | 2026-08-15
+5. Craig Sullivan — hypothesis format + failure-mode talks | T2 | 2026-08-15
+6. Atticus Li / adasight / Simon Jackson — program failures (output vs outcomes) | T2 | 2026-08-15
+7. Synthesis: practitioner-intelligence/syntheses/cro.md | T1/T2 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes
