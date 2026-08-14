@@ -18,12 +18,14 @@ Merged from: `marketing-analytics` + `marketing-attribution` + `marketing-cro` +
 | [signup-flow](signup-flow/SKILL.md) | cro | Optimize signup and onboarding — form fields, activation metric definition, activation milestones, onboarding friction, and email handoffs. |
 | [ab-testing](ab-testing/SKILL.md) | experimentation | Run trustworthy A/B tests — hypothesis format, variant design, sample size math, significance testing, guardrails, and stopping rules. |
 | [experiment-prioritization](experiment-prioritization/SKILL.md) | experimentation | Prioritize experiments with ICE, RICE, PIE, and PXL scoring — hypothesis library, backlog management, and testing velocity planning. |
+| [experimentation-program](experimentation-program/SKILL.md) | experimentation | Run experimentation as a program — portfolio strategy, velocity tracking, learning library, guardrail metrics, experiment culture, OKR alignment, and shipping criteria. |
 | [mmm-incrementality](mmm-incrementality/SKILL.md) | attribution | Measure true marketing impact with geo experiments, holdout tests, and marketing mix modeling — incrementality vs attribution and practical design. |
 | [checkout-optimization](checkout-optimization/SKILL.md) | cro | Improve checkout conversion — payment friction, form and address fields, shipping thresholds, trust signals, express and guest checkout, cart recovery. |
 | [forms-microcopy](forms-microcopy/SKILL.md) | cro | Design low-friction forms with sharp microcopy — field reduction, validation rules, error and button copy, placeholders, progressive disclosure. |
 | [product-analytics](product-analytics/SKILL.md) | analytics | Design product analytics — Mixpanel/Amplitude/PostHog event taxonomy, activation and retention metrics, cohort analysis, feature adoption, tool selection. |
 | [dashboard-design](dashboard-design/SKILL.md) | analytics | Design dashboards that drive decisions — exec vs operator vs self-serve tiers, metric hierarchy, layout patterns, alerting, vanity-metric defense. |
 | [crm-pipeline-attribution](crm-pipeline-attribution/SKILL.md) | attribution | Attribute revenue through the CRM pipeline — lead-to-revenue mapping, campaign source tracking, pipeline velocity, closed-won attribution, handoff design. |
+| [crm-lead-ops](crm-lead-ops/SKILL.md) | crm | Design lead operations — routing rules, lead scoring, lifecycle stages, MQL/SQL criteria, CRM data hygiene, sales-marketing SLA, and lead-to-revenue process. |
 | [benchmark-frameworks](benchmark-frameworks/SKILL.md) | analytics | Use benchmarks without fooling yourself — observed vs benchmark vs heuristic, when benchmarks mislead, sources by channel, normalization. |
 | [utm-governance](utm-governance/SKILL.md) | analytics | Run UTM and campaign operations cleanly — taxonomy design, naming conventions, source-medium governance, automation rules, reporting hygiene. |
 
