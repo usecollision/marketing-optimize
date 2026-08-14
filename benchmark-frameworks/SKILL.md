@@ -93,6 +93,33 @@ Invoke when:
 
 **Gate:** Benchmark library exists, is dated, and is reviewed on a schedule.
 
+## Practitioner Grounding & Decision Rules
+
+Built from Avinash Kaushik (metrics discipline), John Cutler (vanity-metric filter), Gibson Biddle (proxy metrics), DTC unit-economics data (Youderian/Firestone). Full research: practitioner-intelligence/syntheses/analytics.md, dtc.md.
+
+- **No target + no decision = remove the metric** (Kaushik — FRAMEWORK, T1): dashboards full of context-free numbers are decoration.
+- **Vanity filter** (Cutler — FRAMEWORK, T1): a metric without context, intent, and actionability is vanity — replace it.
+- **Benchmarks are stage- and model-specific** (Youderian — EMPIRICAL, T1): paid winners run ~63.7% gross margin + 16.6% overhead; benchmarking against the wrong model fools you.
+
+Decision rules:
+1. IF a metric has no target AND no attached decision THEN remove it (Kaushik — FRAMEWORK, T1).
+2. IF a metric lacks context/intent/actionability THEN mark it vanity and replace (Cutler — FRAMEWORK, T1).
+3. IF comparing against an industry benchmark THEN verify the benchmark's stage/model matches (DTC gross margin ~50%+ before scaling ads, for example) — mismatched benchmarks are noise (Youderian — EMPIRICAL, T1).
+4. IF reporting averages THEN add the distribution/cohort view alongside (Biddle — FRAMEWORK, T1).
+5. IF a benchmark is vendor-published THEN treat it as directional (tier 3) unless you can see the sample (synthesis — HEURISTIC, T2).
+
+## Metrics
+
+- **% of dashboard metrics with targets + decisions** — the hygiene metric (Kaushik — FRAMEWORK, T1).
+- **Benchmark match score**: stage/model/geography alignment before use (synthesis — HEURISTIC, T2).
+
+## Sources
+
+1. Avinash Kaushik, *Web Analytics 2.0* + blog | kaushik.net | tier 1 | 2026-08-15
+2. John Cutler, product analytics + vanity metrics | his essays | tier 1 | 2026-08-15
+3. Gibson Biddle, north star + proxy metrics | askgib.substack.com | tier 1 | 2026-08-15
+4. Andrew Youderian, DTC unit economics (eCommerceFuel) | ecommercefuel.com | tier 1 | 2026-08-15
+
 ## Evaluation & QA
 
 ### Common Failure Modes
