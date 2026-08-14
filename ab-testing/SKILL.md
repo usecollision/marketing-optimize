@@ -156,6 +156,13 @@ Decision rules:
 6. IF segment analysis shows a subgroup "win" THEN treat it as a new hypothesis, never a conclusion (Kohavi — EMPIRICAL, T1; existing guidance reinforced).
 7. IF a test's variant counts diverge from allocation by more than a few percent THEN check SRM before reading results — the test may be invalid (Vermeer — EMPIRICAL, T1).
 
+## Metrics
+
+- **Pre-registered primary metric + guardrails** (OEC): the decision metric must be revenue-linked; guardrails catch quality losses (Kohavi — EMPIRICAL, T1).
+- **Practical significance**: CI vs MDE, not p-value alone — a significant +0.3% is worthless (existing Step 5 — FRAMEWORK, T1).
+- **Program diagnostic**: win rate 20-40% band (below = cosmetic/researchless; above = too safe) (synthesis — HEURISTIC, T2).
+- **SRM and A/A p-value uniformity** as instrumentation health metrics (Kohavi/Vermeer — EMPIRICAL, T1).
+
 ## Sources
 
 1. Ronny Kohavi et al., *Trustworthy Online Controlled Experiments* (book) + KDD keynote "Online Controlled Experiments: Lessons from Running A/B/n Tests for 12 Years" | exp-platform.com | tier 1 | 2026-08-14

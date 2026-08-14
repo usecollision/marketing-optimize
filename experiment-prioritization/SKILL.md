@@ -137,6 +137,13 @@ Decision rules:
 5. IF an experiment's result is inconclusive THEN log it as inconclusive (a valid outcome) and re-propose with a larger MDE or different mechanism — never rewrite the outcome (Kohavi/Georgiev — EMPIRICAL, T1).
 6. IF capacity allows only one test per sprint per owner THEN prioritize pipeline coverage over perfect scoring — 3-5x scored backlog for each sustained test/month (existing + Labay — FRAMEWORK, T1).
 
+## Metrics
+
+- **Win rate by confidence bucket** — the calibration loop's primary metric; target band 20-40% (synthesis — HEURISTIC, T2).
+- **Tests run per owner per sprint** + pipeline coverage ratio (3-5x sustain rate) (existing Step 6 + Labay — FRAMEWORK, T1).
+- **Cumulative impact** (shipped wins' measured lift), not activity (existing Step 7 — FRAMEWORK, T1).
+- **Backlog health**: % of ideas with evidence sources, % scored, dedupe rate (existing Step 1-5 — FRAMEWORK, T1).
+
 ## Sources
 
 1. Peep Laja, ResearchXL + PXL frameworks | CXL blog | tier 1 | 2026-08-14
