@@ -121,6 +121,31 @@ Make the program legible:
 
 **Gate:** Reporting cadence defined; learning library is the source of truth for past tests.
 
+## Practitioner Grounding & Decision Rules
+
+Built from Peep Laja (PXL), Craig Sullivan, Brian Massey, Ben Labay, plus win-rate evidence from NN/g, DRIP, and growwithba. Full research: practitioner-intelligence/syntheses/cro.md.
+
+- **Score before debate** (Laja/Massey — FRAMEWORK, T1): objective scoring (PXL or Evidence/Impact/Effort/Traffic/ROI) removes opinion-only ideas before they consume capacity. Score against evidence provenance: measured data > user research > analogy > hunch.
+- **Win-rate band as a calibration diagnostic** (synthesis — HEURISTIC, T2): a healthy program wins 20-40% of tests. Below 20%: hypotheses are cosmetic/researchless. Above 40%: tests are too safe. Track win rate by confidence bucket as the calibration loop (existing Step 4 — now with a target band).
+- **Backlog mix** (Labay/Kohavi — FRAMEWORK, T1): quick wins + bets + moonshots, with pipeline coverage of 3-5x sustain rate (existing). Kohavi's finding: most companies run too few tests — velocity is a goal in itself, but trustworthiness must scale with volume.
+
+Decision rules:
+1. IF a hypothesis has no evidence source (no data, no user research, no documented analogy) THEN score its Confidence ≤ 2 regardless of enthusiasm — opinion-only ideas drop below the build line (Laja — FRAMEWORK, T1).
+2. IF win rate is below ~20% over the last 20 tests THEN require research (analytics/qualitative) before new hypotheses enter the backlog — the pipeline is generating cosmetic tests (synthesis — HEURISTIC, T2).
+3. IF win rate is above ~40% THEN the backlog is too safe — add bigger-swing bets (synthesis — HEURISTIC, T2).
+4. IF a high-Confidence hypothesis loses THEN recalibrate: the confidence model overrated the evidence class — downgrade that evidence class for a quarter (existing calibration loop, now with attribution to the evidence class, Laja — FRAMEWORK, T1).
+5. IF an experiment's result is inconclusive THEN log it as inconclusive (a valid outcome) and re-propose with a larger MDE or different mechanism — never rewrite the outcome (Kohavi/Georgiev — EMPIRICAL, T1).
+6. IF capacity allows only one test per sprint per owner THEN prioritize pipeline coverage over perfect scoring — 3-5x scored backlog for each sustained test/month (existing + Labay — FRAMEWORK, T1).
+
+## Sources
+
+1. Peep Laja, ResearchXL + PXL frameworks | CXL blog | tier 1 | 2026-08-14
+2. Craig Sullivan, hypothesis format and failure-mode talks | cxl.com / conference decks | tier 1 | 2026-08-14
+3. Brian Massey, Evidence/Impact/Effort/Traffic/ROI scoring | Conversion Sciences | tier 2 | 2026-08-14
+4. Ben Labay, experimentation program ops (Speero Phase Gate) | speero.org | tier 2 | 2026-08-14
+5. Ronny Kohavi et al., *Trustworthy Online Controlled Experiments* (experiment velocity, OEC) | exp-platform.com | tier 1 | 2026-08-14
+6. Win-rate data: NN/g reports, DRIP conversion benchmarks, growwithba discipline studies | tier 3 | 2026-08-14
+
 ## Evaluation & QA
 
 ### Common Failure Modes

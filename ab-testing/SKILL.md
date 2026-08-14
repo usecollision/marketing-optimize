@@ -137,6 +137,33 @@ Close the loop:
 
 **Gate:** Decision made with documented rationale; learnings recorded and backlog updated.
 
+## Practitioner Grounding & Decision Rules
+
+Built from Ronny Kohavi (Microsoft), Georgi Georgiev (abtestingstats), Martin Goodson (Bayesian, VWO), Lukas Vermeer (Booking.com). Full research: practitioner-intelligence/syntheses/cro.md.
+
+- **Peeking nuance** (Kohavi — EMPIRICAL, T1): peeking at results is fine for *aborting harm* (guardrail breach, severe bug) or *not acting*; it is never fine for *stopping for a win* without a pre-planned sequential design. The 3-case rule: abort / don't act / win. Peeking with stopping-for-win inflates false positives by orders of magnitude (Georgiev; Heap case: >60% false-positive rate).
+- **Significance threshold is a business calculation** (Georgiev — FRAMEWORK, T1): 95% is a default, not a law. Lower thresholds are justified when tests are cheap and opportunity cost is high; keep strict thresholds for irreversible/high-stakes changes. Encode cost/benefit inputs, not ritual.
+- **Bayesian vs frequentist** (Goodson vs Georgiev/Kohavi — DISAGREEMENT, conditional): Bayesian monitoring (probability of being best + expected loss + optional stopping) is legitimate for decisions with a stated threshold of caring; fixed-horizon frequentist (or pre-planned sequential with spending functions) when the analysis must be auditable. Both schools reject unplanned stop-for-win.
+- **Sample ratio mismatch check** (Kohavi, Vermeer — EMPIRICAL, T1): SRM at p≈1.8e-6 for a 50.2/49.8 split has been observed in production; every test needs an SRM check before analysis.
+- **A/A tests** (Kohavi — EMPIRICAL, T1): validate tooling with A/A tests; the p-value distribution should be uniform.
+
+Decision rules:
+1. IF results look significant before the pre-planned analysis time THEN do NOT stop for the win — either continue to the planned end or switch to a pre-planned sequential design (Kohavi/Georgiev — EMPIRICAL, T1).
+2. IF a guardrail metric breaches a pre-set threshold or a severe bug appears THEN abort immediately — this is the only unplanned stop that is allowed (Kohavi — EMPIRICAL, T1).
+3. IF the analysis must survive external audit (regulatory, exec review, publication) THEN use fixed-horizon frequentist or pre-planned sequential — not ad-hoc Bayesian monitoring (Georgiev — FRAMEWORK, T1).
+4. IF tests are cheap and reversible and opportunity cost is high THEN consider a lower significance threshold (e.g. 90%) computed from business cost/benefit (Georgiev — FRAMEWORK, T1).
+5. IF sample size math says 8 weeks THEN do not shrink the effect to fit 2 weeks — pick a higher-traffic page or accept the duration (Kohavi n ∝ σ²/Δ² — EMPIRICAL, T1).
+6. IF segment analysis shows a subgroup "win" THEN treat it as a new hypothesis, never a conclusion (Kohavi — EMPIRICAL, T1; existing guidance reinforced).
+7. IF a test's variant counts diverge from allocation by more than a few percent THEN check SRM before reading results — the test may be invalid (Vermeer — EMPIRICAL, T1).
+
+## Sources
+
+1. Ronny Kohavi et al., *Trustworthy Online Controlled Experiments* (book) + KDD keynote "Online Controlled Experiments: Lessons from Running A/B/n Tests for 12 Years" | exp-platform.com | tier 1 | 2026-08-14
+2. Georgi Georgiev, *Statistical Methods in Online A/B Testing* | abtestingstats.com | tier 1 | 2026-08-14
+3. Lukas Vermeer, experimentation methodology (Booking.com) | lucasvermeer.blogspot.com | tier 1 | 2026-08-14
+4. Martin Goodson, *Smooth Bayesian A/B Testing* + VWO SmartStats documentation | VWO | tier 1 | 2026-08-14
+5. Microsoft Research, optional stopping in Bayesian A/B testing | tier 1 | 2026-08-14
+
 ## Evaluation & QA
 
 ### Common Failure Modes
